@@ -3,7 +3,7 @@
 #personajes secundarios 
 define e = Character("Elion" , color="C20404")
 define a = Character("Asher" , color="33FFBA")
-define r = Character("Ryan" , color="20009E")
+define r = Character("Bella" , color="20009E")
 define s = Character("Soren" , color="FFE300")
 define y = Character("Ryker" , color="9500D4")
 
