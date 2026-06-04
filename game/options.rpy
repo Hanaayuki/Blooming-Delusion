@@ -1,4 +1,4 @@
-﻿## Este archivo contiene opciones que pueden cambiarse para personalizar el
+## Este archivo contiene opciones que pueden cambiarse para personalizar el
 ## juego.
 ##
 ## Las líneas que empiezan con doble '#' son comentarios, no deben ser
@@ -13,7 +13,7 @@
 ##
 ## El _() que rodea la cadena de texto la señala como traducible.
 
-define config.name = _("Juego iris")
+#define config.name = _("Juego iris")
 
 
 ## Determina si el título dado más arriba se muestra en el menú principal.
@@ -24,7 +24,7 @@ define gui.show_name = True
 
 ## Versión del juego.
 
-define config.version = "1.0"
+define config.version = "1.0.3"
 
 
 ## Texto situado en la pantalla 'Acerca de' del juego. Sitúa el texto entre
@@ -37,7 +37,7 @@ define gui.about = _p("""
 ## Nombre breve del juego para ejecutables y directorios en la distribución.
 ## Debe contener solo carácteres ASCII, sin espacios, comas o puntos y coma.
 
-define build.name = "Juegoiris"
+#define build.name = "Juegoiris"
 
 
 ## Sonidos y música ############################################################
@@ -62,7 +62,7 @@ define config.has_voice = True
 ## el menú principal. Este archivo seguirá sonando en el juego hasta que sea
 ## detenido o se reproduzca otro archivo.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "Main menu theme.MP3"
 
 
 ## Transiciones ################################################################
@@ -73,9 +73,8 @@ define config.has_voice = True
 
 ## Entrar o salir del manú del juego.
 
-define config.enter_transition = dissolve
-define config.exit_transition = dissolve
-
+define config.enter_transition = fade 
+define config.exit_transition = fade
 
 ## Entre pantallas del menú del juego.
 

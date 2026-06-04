@@ -1,190 +1,223 @@
-﻿# Coloca el código de tu juego en este archivo.
+# Coloca el código de tu juego en este archivo.
+
+#pronombres
+init python:
+    def set_genero(g):
+        global genero, el, El, ele, Ele, term
+        genero = g
+        if g == "masculino":
+            el, El, ele, Ele, term = "él", "Él", "el", "El", "o"
+        elif g == "femenino":
+            el, El, ele, Ele, term = "ella", "Ella", "la", "La", "a"
+        elif g == "no binario":
+            el, El, ele, Ele, term = "elle", "Elle", "le", "Le", "e"
 
 #personajes secundarios 
-define e = Character("Elion" , color="C20404")
-define a = Character("Asher" , color="33FFBA")
-define r = Character("Bella" , color="20009E")
-define s = Character("Soren" , color="FFE300")
-define y = Character("Ryker" , color="9500D4")
+define el = Character("Elion" , color="C20404")
+define ah = Character("Asher" , color="33FFBA")
+define r = Character("Ryan" , color="20009E")
+define so = Character("Soren" , color="FFE300")
+define yk = Character("Ryker" , color="9500D4")
+
+define qn = Character("¿?")
+
+define re = Character("Recepcionista")
+define di = Character("Director")
+#narrador es empanadas
+define narrator = Character(None, window_background=Frame("gui/cuadro_texto_protagonista.PNG", 0, 0, xalign=0.5, yalign=1.0))
+
+define n = Character(None, kind=nvl)
 
 #protagonista
-define nj = DynamicCharacter("nombre_jugador" , color="ABABAB")
+define nj = DynamicCharacter("nombre_jugador" , color="ABABAB", window_background=Frame("gui/cuadro_texto_protagonista.PNG", 0, 0, xalign=0.5, yalign=1.0))
+
+#fondos y imagenes
+image fondo habitacion= "BG Fondo Habitacion.PNG"
+image fondo ciudad = "BG Ciudad.PNG"
+image fondo orfanato = "BG orfanato.JPG"
+image fondo orfanato dentro = "BG orfanato dentro.jpg"
+image Elion = "Elion.png"
+image Asher = "Asher.png"
+image Ryan = "Ryan.png"
+image Soren = "Soren.png"
+image Ryker = "Ryker.png"
+image Recepcionista = "Recepcionista.png"
+image Director = "Director.png"
+
+#Cuadro de textos personalizado
+
+
 
 # El juego comienza aquí.
+
 label start:
-    image fondo1= "BG Fondo Habitacion.PNG"
-    scene fondo1
+    $ renpy.music.stop(channel='music', fadeout=1.5)
+    scene fondo habitacion
     # Nombre provisional para evitar errores en el prólogo
     $ nombre_jugador = "..."
 
     #PRÓLOGO 
 
-    nj "Abrí los ojos de golpe."
+    "Abrí los ojos de golpe."
 
-    nj "La respiración me temblaba."
+    "La respiración me temblaba."
 
     play music "audio/Fallen Down (Reprise).mp3" fadein 1.0
 
-    nj "Por un momento me quedé completamente quieto/a, mirando el techo de la habitación mientras intentaba entender qué acababa de pasar."
+    "Por un momento me quedé inmóvil, mirando el techo de la habitación mientras intentaba entender qué acababa de pasar."
 
-    nj "Otra vez."
+    "Otra vez."
 
-    nj "Otra maldita vez."
+    "Otra maldita vez."
 
-    nj "Había sido un sueño."
+    "Había sido un sueño."
 
-    nj "No… una pesadilla."
+    "No… una pesadilla."
 
-    nj "Creo."
+    "Creo."
 
-    nj "Ni siquiera podía recordarla bien."
+    "Ni siquiera podía recordarla bien."
 
-    nj "Solo quedaba esa sensación incómoda en el pecho."
+    "Solo quedaba esa sensación incómoda en el pecho."
 
-    nj "Pesada."
+    "Pesada."
 
-    nj "Fría."
+    "Fría."
 
-    nj "Como si hubiera olvidado algo importante."
+    "Como si hubiera olvidado algo importante."
 
-    nj "Como si hubiera estado conteniendo la respiración demasiado tiempo."
+    "Como si hubiera estado conteniendo la respiración demasiado tiempo."
 
-    nj "Cerré los ojos un segundo, intentando recuperar alguna imagen, algún sonido, cualquier cosa."
+    "Cerré los ojos un segundo, intentando recuperar alguna imagen,{w=0.2} algún sonido,{w=0.1} cualquier cosa."
 
-    nj "Nada."
+    "Nada."
 
-    nj "Todo se deshacía demasiado rápido."
+    "Todo se deshacía demasiado rápido."
 
-    nj "Suspiré despacio y me incorporé en la cama, apartando las mantas de encima."
+    "Suspiré despacio y me incorporé en la cama, apartando las mantas de encima."
 
-    nj "La habitación permanecía en silencio, apenas iluminada por la tenue luz gris que atravesaba las cortinas."
+    "La habitación permanecía en silencio, apenas iluminada por la tenue luz gris que atravesaba las cortinas."
 
-    nj "Por unos segundos no me movi."
+    "Por unos segundos no me movi."
 
-    nj "Solo mire el techo, intentando ordenar los restos de algo que ya empezaba a deshacerse en mi cabeza."
+    "Solo mire el techo, intentando ordenar los restos de algo que ya empezaba a deshacerse en mi cabeza."
 
-    nj "La habitación estaba en silencio."
+    "La habitación estaba en silencio."
 
-    nj "Demasiado silencio."
+    "Demasiado silencio."
 
-    nj "La luz grisácea que entra entre las cortinas hacía que todo se viera apagado."
+    "La luz grisácea que entra entre las cortinas hacía que todo se viera apagado."
 
-    nj "Vacío."
+    "Vacío."
 
-    nj "Me llevé una mano a la cara."
+    "Me llevé una mano a la cara."
 
-    nj "Últimamente dormía peor."
+    "Últimamente dormía peor."
 
-    nj "O quizá simplemente empezaba a recordar más de lo que debería."
+    "O quizá simplemente empezaba a recordar más de lo que debería."
 
-    nj "El sonido suave de la cama hundiéndose rompió el silencio mientras me levantaba."
+    "El sonido suave de la cama hundiéndose rompió el silencio mientras me levantaba."
 
-    nj "El suelo estaba frío."
+    "El suelo estaba frío."
 
-    nj "Demasiado frío."
+    "Demasiado frío."
 
-    nj "Camine hasta el espejo apoyado cerca de la pared."
+    "Camine hasta el espejo apoyado cerca de la pared."
 
-    nj "Por un instante me quede observando mi reflejo sin decir nada."
+    "Por un instante me quede observando mi reflejo sin decir nada."
 
-    nj '"...Vaya cara."'
+    nj "\"...Vaya cara.\""
 
-    #PERSonalicion
-    "de que color eran mis ojos?"
+    #PERSONA5licion
+
+    "Las ojeras eran bastante evidentes ya que hacía un contraste con mis ojos... "
+
     menu:
         "Azules":
-            $ color_ojos = "azul"
-            nj "Las ojeras eran bastante evidentes ya que hacía un contraste con mis ojos color [color_ojos]."
+            $ color_ojos = "azules"
         "Verdes":
-            $ color_ojos = "verde"
-            nj "Las ojeras eran bastante evidentes ya que hacía un contraste con mis ojos color [color_ojos]."
+            $ color_ojos = "verdes"
         "Marrones":
-            $ color_ojos = "marrón"
-            nj "Las ojeras eran bastante evidentes ya que hacía un contraste con mis ojos color [color_ojos]."
+            $ color_ojos = "marrones"
         "Grises":
-            $ color_ojos = "gris"
-            nj "Las ojeras eran bastante evidentes ya que hacía un contraste con mis ojos color [color_ojos]."
+            $ color_ojos = "grises"
+
+    extend "[color_ojos]."
     
-    "Mi pelo siempre fue de estre color?"
+    "Mi pelo... "
+
     menu:
         "Rubio":
             $ color_pelo = "rubio"
-            nj "Me acomodé el cabello rubio, que estaba completamente desordenado."
+            extend "Me acomodé el cabello rubio, que estaba completamente desordenado."
             
         "Castaño":
             $ color_pelo = "castaño"
-            nj "Pasé una mano por mi cabello castaño para quitarlo de mi cara."
+            extend "Pasé una mano por mi cabello castaño para quitarlo de mi cara."
             
         "Negro":
             $ color_pelo = "negro"
-            nj "Mi cabello negro se veía opaco bajo la luz gris."
-            
+            extend "Mi cabello negro se veía opaco bajo la luz gris."
+        
         "Pelirrojo":
             $ color_pelo = "pelirrojo"
-            nj "El tono pelirrojo de mi cabello era lo único con color en este lugar."
+            extend "El tono pelirrojo de mi cabello era lo único con color en este lugar."
 
     #Genero 
-    "Pero... ¿qué género tenía?"
+    "Me apoyé en el mueble a un lado, sin querer tirando mi ID."
+    "Lo tomé, y leí por encima mis datos, como si fueran los de alguien más."
+
     menu:
         "Masculino":
-            $ genero = "masculino"
-            $ o_a ="o"
-            $ o_a_e= "o"
-            nj "un chico espero no quedarme calvo"
+            $ set_genero("masculino")
         "Femenino":
-            $ genero = "femenino"
-            $ o_a ="a"
-            $ o_a_e= "a"
-            nj "una chica ojala ser mas alta"
+            $ set_genero("femenino")
         "No binario":
-            $ genero = "no binario"
-            $ o_a ="e"
-            $ o_a_e= "e"
-            nj " me siento azul kris?"
-
+            $ set_genero("no binario")
 
     #Nombre
-    $ nombre_jugador = renpy.input("¿Cómo me llamo?", default="mc")
+    $ nombre_jugador = renpy.input("¿Cómo me llamo?", default="MC")
     $ nombre_jugador = nombre_jugador.strip()
 
     if not nombre_jugador:
-        $ nombre_jugador = "mc" 
+        $ nombre_jugador = "MC" 
 
-    nj '"...Bueno, [nombre_jugador]. Sigues viv[o_a]. Supongo que eso ya es algo."'
+    nj "...Bueno, [nombre_jugador]. Sigues viv[term]. Supongo que eso ya es algo."
 
-    nj "Intenté bromear conmigo mism[o_a_e], pero la voz salió más vacía de lo que esperaba."
+    "Intenté bromear conmigo mism[term], pero la voz salió más vacía de lo que esperaba."
 
-    nj "Por un instante seguí mirando mi reflejo."
+    stop music fadeout 3.0
 
-    nj "A veces se sentía extraño."
+    "Por un instante seguí mirando mi reflejo."
 
-    nj "Como si estuviera viendo a otra persona."
+    "A veces se sentía extrañ[term]."
 
-    stop music fadeout 1.0
+    "Como si estuviera viendo a otra persona."
 
     "..."
 
     "..."
 
     play sound "audio/Ding.OGG" fadein 1.0
- 
-    nj "El sonido de una notificación rompió el silencio de la habitación"
+    "*ding*"
 
-    nj "Parpadeé y giré la cabeza hacia el escritorio."
-    
-    nj "Parpadeé y giré la cabeza hacia el escritorio."
+    play sound "audio/Ding.OGG" fadein 1.0
+    "*ding*"
 
-    nj "El portátil seguía encendido."
+    "El sonido de una notificación rompió el silencio de la habitación"
 
-    nj "Fruncí ligeramente el ceño antes de acercarme."
+    "Parpadeé y giré la cabeza hacia el escritorio."
 
-    nj "No esperaba ningún mensaje"
+    "El portátil seguía encendido."
 
-    nj "Mucho menos uno así."
+    "Fruncí ligeramente el ceño antes de acercarme."
 
-    "Asunto: Confirmación de acceso a archivos — Orfanato Tsukimi."
+    "No esperaba ningún mensaje"
 
-#elecion 1 
+    "Mucho menos uno así."
+
+    "Asunto:" 
+    extend "\nConfirmación de acceso a archivos — Orfanato Tsukimi."
 
     menu:
         "Abrir el correo.":
@@ -194,14 +227,12 @@ label start:
 
 label Lee_el_correo:
 
-    nj "Dudé unos segundos antes de pulsar la notificación."
+    "Dudé unos segundos antes de pulsar la notificación."
 
-    nj "La pantalla iluminó ligeramente mi rostro mientras el correo terminaba de cargar."
+    "La pantalla iluminó ligeramente mi rostro mientras el correo terminaba de cargar."
 
-            
-    show correo_orfanato at truecenter
-
-    "Asunto:\nConfirmación de acceso a archivos — Orfanato Tsukimi."
+    "Asunto:" 
+    extend "\nConfirmación de acceso a archivos — Orfanato Tsukimi."
 
     "..."
 
@@ -209,267 +240,664 @@ label Lee_el_correo:
 
     nj "Abrí el mensaje."
 
+    show correo_orfanato at truecenter
+    pause
+
     "..."
 
     hide correo_orfanato
 
     nj "...Hoy..."
 
-    nj "Miré la hora rápidamente."
+    "Miré la hora rápidamente."
 
-    nj "Aún tenía tiempo."
+    "Aún tenía tiempo."
 
-    nj "Aunque no demasiado."
+    "Aunque no demasiado."
 
-    nj "El estómago se me revolvió ligeramente."
+    "El estómago se me revolvió ligeramente."
 
-    nj "Después de tantos años..."
+    "Después de tantos años... {w}por fin iba a descubrir algo."
 
-    nj "por fin iba a descubrir algo."
+    "Algo sobre mí."
 
-    nj "Algo sobre mí."
+    "Sobre mi infancia."
 
-    nj "Sobre mi infancia."
-
-    nj "Sobre lo que ocurrió realmente."
+    "Sobre lo que ocurrió realmente."
 
     "..."
 
-    nj "O eso esperaba."
+    "O eso esperaba."
 
-    nj "Cerré lentamente el portátil y me quedé sentad[o_a] unos segundos al borde de la cama."
+    "Cerré lentamente el portátil y me quedé sentad[term] unos segundos al borde de la cama."
 
-    nj "De repente ya no tenía tan claro querer ir."
+    "De repente ya no tenía tan claro querer ir."
 
-    nj "Había pasado años intentando no pensar en ello."
+    "Había pasado años intentando no pensar en ello."
 
-    nj "En el orfanato."
+    "En el orfanato."
 
-    nj "En mis padres."
+    "En mis padres."
 
-    nj "En esa parte de mi vida que apenas podía recordar."
+    "En esa parte de mi vida que apenas podía recordar."
 
-    nj "Y ahora..."
+    "Y ahora... {w}ahora estaba a punto de abrir una puerta que quizá nunca debió abrirse."
 
-    nj "ahora estaba a punto de abrir una puerta que quizá nunca debió abrirse."
+    "Me levanté lentamente y tomé la chaqueta que descansaba sobre la silla del escritorio."
 
-    nj "Me levanté lentamente y tomé la chaqueta que descansaba sobre la silla del escritorio."
+    "Las manos me temblaban un poco."
 
-    nj "Las manos me temblaban un poco."
+    "No sabía si era miedo o ansiedad."
 
-    nj "No sabía si era miedo o ansiedad."
+    "Quizá ambas."
 
-    nj "Quizá ambas."
+    "Antes de salir lancé una última mirada a la habitación."
 
-    nj "Antes de salir lancé una última mirada a la habitación."
+    "Vacía."
 
-    nj "Vacía."
+    "Silenciosa."
 
-    nj "Silenciosa."
-
-    nj "Fría."
+    "Y fría."
 
     "..."
 
-    nj "Cerré la puerta tras de mí."
+    "Cerré la puerta tras de mí."
 
-    scene black with fade
-   
-    image fondo2 = "BG Ciudad.PNG"
-    scene fondo2
-    nj "El cielo estaba cubierto."
+    scene fondo ciudad with fade
 
-    nj "La ciudad parecía extrañamente apagada bajo la luz grisácea de la tarde."
+    "El cielo estaba cubierto."
 
-    nj "Las personas caminaban a mi alrededor sin mirarme siquiera."
+    "La ciudad parecía extrañamente apagada bajo la luz grisácea de la tarde."
 
-    nj "Como si yo no existiera realmente."
+    "Las personas caminaban a mi alrededor sin mirarme siquiera."
 
-    nj "Metí las manos en los bolsillos mientras seguía avanzando."
+    "Como si yo no existiera realmente."
 
-    nj "Cada paso hacia el orfanato hacía que el pecho me pesara más."
+    "Metí las manos en los bolsillos mientras seguía avanzando."
 
-    nj "Intentaba recordar algo."
+    "Cada paso hacia el orfanato hacía que el pecho me pesara más."
 
-    nj "Cualquier cosa."
+    "Intentaba recordar algo."
 
-    nj "Una voz."
+    "Cualquier cosa."
 
-    nj "Un rostro."
+    "Una voz."
 
-    nj "Un nombre."
+    "Un rostro."
 
-    nj "Pero mi cabeza seguía sintiéndose vacía."
+    "Un nombre."
 
-    nj "Rota."
+    "Pero mi cabeza seguía sintiéndose vacía."
+
+    "Rota."
 
     "..."
 
-    nj "Entonces lo vi."
+    "Entonces lo vi."
 
-    scene black with fade 
-    show text "orfanato tsukimi" at truecenter
-    pause 
+    scene fondo orfanato with fade 
+    show text "{color="#00000"}Orfanato Tsukimi{/color}" at truecenter
+    pause 1.0
     hide text
-    image fondo3 = "BG orfanato.JPG"
-    scene fondo3
 
     
-    nj "El edificio parecía más pequeño de lo que imaginaba."
+    "El edificio parecía más pequeño de lo que imaginaba."
 
-    nj "Viejo."
+    "Viejo."
 
-    nj "Silencioso."
+    "Silencioso."
 
-    nj "Casi abandonado."
+    "Casi abandonado."
 
-    nj "Me detuve unos segundos frente a la entrada."
+    "Me detuve unos segundos frente a la entrada."
 
-    nj "El pecho me dolía."
+    "El pecho me dolía."
 
-    nj "Como si mi cuerpo estuviera intentando decirme que me fuera."
+    "Como si mi cuerpo estuviera intentando decirme que me fuera."
 
-    nj "Pero ya había llegado demasiado lejos para echarme atrás."
+    "Pero ya había llegado demasiado lejos para echarme atrás."
 
 
     play sound "audio/puerta_abrir.MP3" 
 
-    nj "Empujé lentamente la puerta."
+    "Empujé lentamente la puerta."
 
+    scene fondo orfanato dentro with fade
 
- image fondo4 = "BG orfanato dentro.JPG"
- scene fondo4 
+    "El ambiente olía a papel viejo y madera húmeda."
+   
+    "Una mujer detrás del mostrador levantó ligeramente la mirada al verme entrar."
+  
+    re "...¿[nombre_jugador]?"
 
+    "Asentí lentamente"
 
+    "La mujer sonrió de manera educada, aunque había algo extraño en su expresión."
 
+    "Como si me reconociera."
 
+    re "Estábamos esperándote."
+    show Recepcionista at left with fade
+    "No supe por qué esa frase me hizo sentir incómod[term]."
 
+    "La mujer me pidió que la siguiera por uno de los pasillos."
 
+    "El sonido de mis pasos resonaba demasiado fuerte."
 
+    "Las paredes estaban cubiertas de fotografías antiguas."
 
+    "Niños."
 
+    "Empleados."
 
+    "Habitaciones."
 
-return 
+    "Intenté mirar rápido, pero algo dentro de mí seguía sintiéndose extraño."
+
+    "Familiar."
+
+    "..."
+
+    "Entonces me detuve."
+
+    "Una fotografía."
+
+    "Vieja."
+
+    "Gastada."
+
+    "Mis ojos se quedaron clavados en ella."
+
+    "Un grupo de niños sonriendo frente al edificio."
+
+    "Y entre ellos-"
+
+    "..."
+
+    "Mi respiración se cortó."
+
+    "Ese era yo."
+
+    "Mucho más pequeñ[term]"
+
+    "Pero no estaba sol[term]."
+
+    "Había alguien más a mi lado."
+
+    "Alguien cuya cara había sido arrancada de la fotografía."
+
+    "Aparté lentamente la mirada."
+
+    "La sensación incómoda seguía clavada en mi pecho."
+
+    re "...¿Ocurre algo?"
+    show Recepcionista at left with fade
+    "La voz de la recepcionista me hizo reaccionar"
+
+    "Negué rápidamente con la cabeza."
+
+    nj "No... nada."
+
+    "Aunque claramente no era verdad."
+
+    "La mujer observó unos segundos más antes de continuar caminando por el pasillo."
+
+    "La seguí en silencio."
+
+    "Intentando ignorar esa horrible sensación creciendo dentro de mí."
+
+    "Finalmente nos detuvimos frente a una puerta de madera oscura."
+
+    "La recepcionista llamó suavemente dos veces antes de abrir."
+
+    re "Director, [nombre_jugador] ya ha llegado."
+    show Recepcionista at left with fade
+    "El despacho era pequeño."
+
+    "Demasiado ordenado."
+
+    "El olor a papel viejo seguía impregnándolo todo."
+
+    "Un hombre mayor levantó la mirada desde unos documentos al verme entrar."
+
+    "Por un instante pareció sorprendido."
+
+    "Solo un segundo."
+
+    "Después sonrió suavemente."
+
+    di "…Así que eres tú."
+    show Director at right with fade
+    "No supe por qué esas palabras me incomodaron tanto."
+
+    "El director señaló la silla frente al escritorio."
+
+    di "Siéntate, por favor."
+    show Director at left with fade   
+    "Obedecí lentamente mientras la recepcionista cerraba la puerta detrás de mí."
+
+    "El sonido hizo que el ambiente se sintiera todavía más encerrado."
+
+    "El director abrió uno de los cajones del escritorio y sacó una carpeta bastante gruesa."
+
+    "Vieja."
+
+    "Gastada por el tiempo."
+
+    "Mi estómago se tensó al verla."
+
+    di "…Estos son los registros que conservamos sobre ti."
+    show Director at left with fade
+    "La colocó frente a mí lentamente."
+
+    "Por un momento dudé antes de abrirla."
+
+    "Pero ya había llegado demasiado lejos para echarme atrás."
+
+    "Abrí la carpeta."
+
+    "Lo primero que vi fue una hoja con varias fotografías mías."
+
+    "Fotos antiguas."
+
+    "Demasiado antiguas."
+
+    window hide
+    nvl clear
+    nvl show
+
+    n "Nombre: {w}[nombre_jugador]."
+    n "Edad al ingresar: {w}7 años."
+    n "Fecha de nacimiento: {w}28/05/XX."
+    n "Altura: {w}1,25 cm"
+    n "Descripción física:"
+    n "— Cabello [color_pelo]."
+    n "— Ojos [color_ojos]."
+    n "Estado de ingreso:"
+    n "— Encontrad[term] sol[term] durante la madrugada del 12 de noviembre del 20XX."
+    n "— Sin familiares localizados."
+    n "— Estado emocional inestable."
+    n "— Dificultad para recordar información previa al incidente."
+    
+    nvl hide
+    nvl clear
+    window show
+
+    "Mi respiración se volvió más pesada."
+
+    "Pasé lentamente a la siguiente hoja."
+
+    "Un informe policial."
+
+    "El papel estaba ligeramente amarillento."
+
+    window hide
+    nvl clear
+    nvl show
+
+    n "Reporte policial — Caso 2471"
+    n "Menor encontrad[term] cerca de la carretera nacional junto a los restos del accidente registrado la noche del 11 de noviembre."
+    n "No se encontraron adultos con vida en la escena."
+    n "[Ele] menor presentaba heridas leves y un evidente estado de shock."
+    n "Durante el interrogatorio inicial, [ele] menor fue incapaz de proporcionar información coherente sobre lo ocurrido o sobre sus familiares."
+    n "Posteriormente fue trasladad[term] al Orfanato Tsukimi bajo custodia temporal."
+
+    nvl hide
+    nvl clear
+    window show
+
+    "Por último pase a la última documentación  que era la mas gastada y la menos legible  la información psiquiátrica "
+
+    window hide
+    nvl clear
+    nvl show
+
+    n "Registro psicológico inicial — Archivo parcial"
+    n "Paciente: {w}[nombre_jugador]."
+    n "Edad al ingreso: {w}7 años."
+    n "Estado observado al llegar:"
+    n "— [Ele] menor presentaba signos evidentes de shock y desorientación."
+    n "— Durante las primeras entrevistas mostró dificultades para responder preguntas relacionadas con identidad, entorno familiar y recuerdos previos al incidente."
+    n "— Se recomienda evitar insistir en la recuperación inmediata de memoria debido al estado emocional actual."
+    nvl clear
+
+    n "Observaciones iniciales:"
+    n "— Escasa interacción con otros menores."
+    n "— Episodios frecuentes de ansiedad nocturna."
+    n "— Reacción negativa ante separaciones prolongadas del personal."
+    n "— Dificultad para permanecer solo/a durante largos periodos de tiempo."
+    n "━━━━━━━━━━━"
+    n "Nota adicional:"
+    n "[Ele] menor parece reaccionar favorablemente cuando recibe atención constante o validación emocional."
+    n "Se recomienda supervisión continua durante las próximas semanas."
+
+    nvl hide
+    nvl clear
+    window show
+
+    "No hay más páginas..."
+     
+    "Mis manos empezaron a temblar ligeramente."
+
+    nj "No recuerdo nada de esto…"
+
+    "La voz salió apenas en un susurro."
+
+    "El director permaneció en silencio unos segundos."
+
+    "Como si estuviera decidiendo cuánto debía decirme realmente."
+
+    "Entonces habló."
+
+    di "…Eso es normal."
+
+    "Levanté lentamente la mirada."
+
+    "El hombre suspiró suavemente antes de continuar."
+
+    di "El trauma puede hacer que la mente entierre ciertas cosas."
+
+    "..."
+
+    di "…Aunque hay algo extraño."
+
+    "El ambiente se volvió todavía más pesado."
+
+    di "Tus archivos están incompletos."
+
+    "Sentí un escalofrío recorrerme la espalda."
+
+    nj "Incompletos… ¿cómo?"
+
+    "El director frunció ligeramente el ceño."
+
+    di "Faltan documentos."
+
+    "..."
+
+    di "Y no sabemos quién los retiró."
+
+    "..."
+
+    "El silencio que siguió fue insoportable."
+
+    "Sentía el corazón golpeándome demasiado fuerte contra el pecho."
+
+    nj "No…"
+
+    "Bajé rápidamente la mirada hacia los documentos otra vez."
+
+    "Las fotografías."
+
+    "El informe."
+
+    "La fecha."
+
+    "Todo parecía borroso de repente."
+
+    "Como si mi cabeza estuviera dejando de procesarlo correctamente."
+
+    nj "Eso no tiene sentido…"
+
+    "Mis manos temblaban."
+
+    "Intenté seguir leyendo, pero las letras empezaban a mezclarse frente a mis ojos."
+
+    "Entonces ocurrió."
+
+    "Una imagen atravesó mi mente de golpe."
+
+    "Una carretera oscura."
+
+    "Lluvia."
+
+    "Alguien sujetándome la mano."
+
+    "Y una voz—"
+
+    qn "Corre."
+
+    "Me levanté tan rápido que la silla chocó contra el suelo."
+
+    "La respiración empezó a romperse."
+
+    "El director se incorporó inmediatamente."
+
+    di "¿[nombre_jugador]?"
+
+    nj "No..."
+
+    "Me llevé ambas manos a la cabeza."
+
+    "Dolía."
+
+    "Dolía demasiado."
+
+    "Más imágenes aparecieron de golpe."
+
+    "Luces."
+
+    "Sangre."
+
+    "El sonido metálico de algo rompiéndose."
+
+    "Una figura borrosa."
+
+    "Y alguien llorando."
+
+    nj "Necesito salir…"
+
+    "La voz apenas parecía mía."
+
+    "El director intentó acercarse."
+
+    di "Espera, tranquilízate—"
+
+    nj "¡No me toque!"
+
+    "Retrocedí casi automáticamente."
+
+    "La habitación empezó a sentirse demasiado pequeña."
+
+    "Demasiado cerrada."
+
+    "No podía respirar."
+
+    "Necesitaba salir."
+
+    "Ahora."
+
+    "Sin pensar demasiado agarré mi chaqueta y salí del despacho apresuradamente."
+
+    "Escuché al director decir algo detrás de mí, pero ya no podía entenderlo."
+
+    "Todo sonaba lejano."
+
+    "Distorsionado."
+
+    "Atravesé el pasillo casi corriendo."
+
+    "Las fotografías de las paredes parecían observarme mientras pasaba."
+
+    "Mi respiración se quebraba más con cada paso."
+
+    nj "No recuerdo…"
+
+    "La voz me tembló horriblemente."
+
+    nj "No recuerdo nada…"
+
+    "Empujé la puerta principal del orfanato y salí al exterior."
+
+    "El aire frío golpeó mi rostro de inmediato."
+
+    "Pero no ayudó."
+
+    "Nada ayudaba."
+
+    "Las imágenes seguían apareciendo."
+
+    "Fragmentos."
+
+    "Pedazos rotos de algo que mi mente llevaba años intentando esconder."
+
+    "Seguí avanzando sin mirar realmente hacia dónde iba."
+
+    "Demasiado rápido."
+
+    "Demasiado ruido."
+
+    "Las luces de la calle se mezclaban frente a mis ojos."
+
+    "Entonces—"
+
+    "*Sonido de claxon*"
+
+    "Giré la cabeza demasiado tarde."
+
+    "Una luz blanca atravesó mi visión."
+
+    "El cuerpo se me congeló por completo."
+
+    "Y entonces—"
+
+    play sound "audio/Camion Chocar Sonido.MP3" 
+
+    "..."
+
+    "..."
+
+    show text "FIN DEL PROLOGO" at truecenter
+    pause 3.0
+
+    return
+
 label No_lee_el_correo:
 
-   nj "Desvié la mirada de la pantalla."
+    nj "Desvié la mirada de la pantalla."
 
-   nj '"...Luego."'
+    nj '"...Luego."'
 
-   nj "No tenía ganas de lidiar con eso ahora mismo."
+    nj "No tenía ganas de lidiar con eso ahora mismo."
 
-   nj "Cerré los portátil sin siquiera abrir el mensaje."
+    nj "Cerré los portátil sin siquiera abrir el mensaje."
 
-   nj "El sonido seco de la tapa resonó ligeramente en la habitación."
+    nj "El sonido seco de la tapa resonó ligeramente en la habitación."
 
-   nj "Demasiado fuerte."
+    nj "Demasiado fuerte."
 
-   nj "Suspiré y me dejé caer nuevamente sobre la cama."
+    nj "Suspiré y me dejé caer nuevamente sobre la cama."
 
-   nj "Intentando ignorar esa sensación incómoda en el pecho."
+    nj "Intentando ignorar esa sensación incómoda en el pecho."
 
-   nj "Como si algo estuviera esperando."
+    nj "Como si algo estuviera esperando."
 
-   "..."
+    "..."
 
-   "..."
+    "..."
 
-   "~ Horas después ~"
+    show text "~ Horas después ~" at truecenter
+    pause 3.0
+    hide text
 
-   nj "La tenue luz grisácea había desaparecido hacía rato."
+    nj "La tenue luz grisácea había desaparecido hacía rato."
 
-   nj "Parpadeé lentamente al escuchar vibrar el móvil sobre el escritorio."
+    nj "Parpadeé lentamente al escuchar vibrar el móvil sobre el escritorio."
 
-   nj "Fruncí el ceño."
+    nj "Fruncí el ceño."
 
-   nj "¿Cuánto tiempo había pasado?"
+    nj "¿Cuánto tiempo había pasado?"
 
-   nj "Me incorporé confundid[o_a] y tomé el teléfono."
+    nj "Me incorporé confundid[term] y tomé el teléfono."
 
-   "18:07"
+    "18:07"
 
-   "..."
+    "..."
 
-   nj "El cuerpo se me tensó."
+    nj "El cuerpo se me tensó."
 
-   nj '"No..."'
+    nj '"No..."'
 
-   nj "Abrí rápidamente el portátil."
+    nj "Abrí rápidamente el portátil."
 
-   nj "La pantalla iluminó la habitación oscura mientras buscaba el correo."
+    nj "La pantalla iluminó la habitación oscura mientras buscaba el correo."
 
-   show correo_orfanato at truecenter
+    show correo_orfanato at truecenter
 
-   "Asunto:\nConfirmación de acceso a archivos — Orfanato Tsukimi."
+    "Asunto:"
 
-   nj "Lo abrí de golpe."
+    "Confirmación de acceso a archivos — Orfanato Tsukimi."
 
-   "Su cita ha sido programada para hoy, 17 de noviembre, a las 16:30."
+    nj "Lo abrí de golpe."
 
-   "..."
+    "Su cita ha sido programada para hoy, 17 de noviembre, a las 16:30."
 
-   hide correo_orfanato
+    "..."
 
-   nj '"...Mierda."'
+    hide correo_orfanato
 
-   nj "Sentí un vacío horrible en el estómago."
+    nj '"...Mierda."'
+
+    nj "Sentí un vacío horrible en el estómago."
    
-   menu:
-      "Todavía puedo llegar.":
-         nj "Apenas eran las seis pasadas. Si corría, si inventaba una excusa, si les suplicaba..."
-         nj "Quizá aún quedara alguien allí. No podía perder esta oportunidad."
-         nj "La desesperación me nubló el juicio."
-         
-         nj "Tomé lo primero que encontré y salí del apartamento casi corriendo."
-         nj "Los pensamientos se atropellaban en mi cabeza mientras bajaba las escaleras."
-         nj "Demasiado rápido."
-         nj "Demasiado ruido."
-         nj "La respiración empezaba a temblarme otra vez."
-         nj "Necesitaba llegar."
-         nj "Necesitaba saber."
-         nj "Necesitaba—"
+    menu:
+        "Todavía puedo llegar.":
+            nj "Apenas eran las seis pasadas. Si corría, si inventaba una excusa, si les suplicaba..."
+            nj "Quizá aún quedara alguien allí. No podía perder esta oportunidad."
+            nj "La desesperación me nubló el juicio."
+            
+            nj "Tomé lo primero que encontré y salí del apartamento casi corriendo."
+            nj "Los pensamientos se atropellaban en mi cabeza mientras bajaba las escaleras."
+            nj "Demasiado rápido."
+            nj "Demasiado ruido."
+            nj "La respiración empezaba a temblarme otra vez."
+            nj "Necesitaba llegar."
+            nj "Necesitaba saber."
+            nj "Necesitaba—"
 
-         play sound "audio/Camion Chocar Sonido.MP3" 
-         scene black with Fade(0.1, 0.0, 0.5, color="#000000")
+            play sound "audio/Camion Chocar Sonido.MP3" 
+            scene black with fade
 
-         "Una luz blanca atravesó mi visión."
-         "Y entonces todo desaparece."
+            "Una luz blanca atravesó mi visión."
+            "Y entonces todo desaparece."
 
-         window hide 
-         show text "FIN DEL PROLOGO"
-         return 
+            show text "FIN DEL PROLOGO" at truecenter
+            pause 3.0
+            return 
 
-      "…Ya es demasiado tarde.":
-         nj "Me quedé mirando la pantalla en silencio."
-         
-         "18:07."
-         nj "La cita había terminado hacía más de una hora."
+        "…Ya es demasiado tarde.":
+            nj "Me quedé mirando la pantalla en silencio."
+            "18:07."
+            nj "La cita había terminado hacía más de una hora."
+            "..."
+            nj "Poco a poco dejé caer el portátil sobre el escritorio."
+            nj '"...Da igual."'
+            nj "La voz salió vacía."
+            nj "Como si realmente ya no importara."
+            nj "Volví a sentarme en la cama mientras la habitación quedaba nuevamente en silencio."
+            nj "El correo seguía abierto frente a mí."
+            nj "Esperando."
+            nj "Como si quisiera decir algo más."
+            nj "Pero no lo hacía."
+            nj "Y yo tampoco tenía fuerzas para insistir."
+            "..."
+            nj "Quizá nunca debí pedir aquella cita."
+            nj "Quizá remover el pasado solo iba a empeorar las cosas."
+            nj "Me tumbé lentamente, mirando el techo una vez más."
+            nj "La misma sensación vacía seguía ahí."
+            nj "Pesada."
+            nj "Fría."
+            nj "Y aunque intentara ignorarla... {w}nunca desaparecía del todo."
+            scene black with fade
 
-         "..."
-         nj "Poco a poco dejé caer el portátil sobre el escritorio."
-         nj '"...Da igual."'
-         nj "La voz salió vacía."
-         nj "Como si realmente ya no importara."
-         nj "Volví a sentarme en la cama mientras la habitación quedaba nuevamente en silencio."
-         nj "El correo seguía abierto frente a mí."
-         nj "Esperando."
-         nj "Como si quisiera decir algo más."
-         nj "Pero no lo hacía."
-         nj "Y yo tampoco tenía fuerzas para insistir."
-         "..."
-         nj "Quizá nunca debí pedir aquella cita."
-         nj "Quizá remover el pasado solo iba a empeorar las cosas."
-         nj "Me tumbé lentamente, mirando el techo una vez más."
-         nj "La misma sensación vacía seguía ahí."
-         nj "Pesada."
-         nj "Fría."
-         nj "Y aunque intentara ignorarla..."
-         nj "nunca desaparecía del todo."
+            show text "━━━━━━━━━━━\nFINAL ALCANZADO\n━━━━━━━━━━━" at truecenter
 
-         
-         scene black with fade
-         "━━━━━━━━━━━\nFINAL ALCANZADO\n━━━━━━━━━━━"
-         '"{i}Lo que nunca se busca…\nnunca llega a encontrarse.{/i}"'
-         return
+            pause 2.0
+            
+            show text "{i}Lo que nunca se busca…\nnunca llega a encontrarse.{/i}" at truecenter
+            
+            pause
+
+            return
+
 
