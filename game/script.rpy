@@ -377,7 +377,9 @@ label Lee_el_correo:
     "Como si me reconociera."
 
     re "Estábamos esperándote."
+
     show Recepcionista at left with fade
+
     "No supe por qué esa frase me hizo sentir incómod[term]."
 
     "La mujer me pidió que la siguiera por uno de los pasillos."
@@ -451,7 +453,7 @@ label Lee_el_correo:
     "La recepcionista llamó suavemente dos veces antes de abrir."
 
     re "Director, [nombre_jugador] ya ha llegado."
-    show Recepcionista at left with fade
+
     "El despacho era pequeño."
 
     "Demasiado ordenado."
@@ -487,7 +489,7 @@ label Lee_el_correo:
     "Mi estómago se tensó al verla."
 
     di "…Estos son los registros que conservamos sobre ti."
-    show Director at left with fade
+    
     "La colocó frente a mí lentamente."
 
     "Por un momento dudé antes de abrirla."
