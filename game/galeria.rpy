@@ -10,17 +10,19 @@ init python:
     g.transition = fade
 
     # volcamos las fotos uwu
+    
+    # IMPORTANTE: El nombre aquí debe ser idéntico al de abajo
     g.button("foto_epilogo")
-    g.unlock_image("Correo_orfanato") # bella le dice amaru di 12 + 1, amaru lo dice, bella en corto mientras mas me la mama mas me crece
+    g.unlock_image("correo_orfanato") # bella le dice amaru di 12 + 1, amaru lo dice, bella en corto mientras mas me la mama mas me crece
 
     g.button("foto_escena2")
     g.unlock_image("dlagon") # H-O-T-T-O-G-O
     
     g.button("foto_escena3")
-    g.unlock_image("tengo hambre") # te dije que ignoraras todo lo que viene después de full traceback
+    g.unlock_image("tengo_hambre") # te dije que ignoraras todo lo que viene después de full traceback
     
     g.button("foto_escena4")
-    g.unlock_image("bg ow") # no se que poner aqui pero te cuento algo tenemos a pepe detras de esta puerta: deja que le paso una nota 汉 o me la a respondido jajajaj la verdad no se que dice 
+    g.unlock_image("bg_ow") # no se que poner aqui pero te cuento algo tenemos a pepe detras de esta puerta: deja que le paso una nota 汉 o me la a respondido jajajaj la verdad no se que dice 
 
 
 # me tuve que ver un video de como colacal las fotos pero ya lo entendi aunque tambien me vi cual es la derecha y la izquierda
@@ -37,33 +39,32 @@ screen galeria_screen():
         ypos 40
         action Return()
 
-    # Usamos un frame con tamaño fijo para que no se muevan del centro
+    # contenedor invisible para centrar la cuadricula encima del fondo
     frame:
-        background None
+        background None # Esto hace que el marco sea invisible
         xalign 0.5
         yalign 0.5
-        
-        # vpgrid ayuda a que no se solapen y permite scroll si pones mas fotos
-        vpgrid:
-            cols 2
+
+        # vale entiendo esto bella es importante creo que ya se cual es la derecha y es la que esta encima de la cabeza
+        grid 2 2:
             spacing 40
-            draggable True
-            mousewheel True
+            xalign 0.5
             
             # Casilla 1
             vbox:
                 imagebutton:
+                    
                     idle g.make_button("foto_epilogo", "galeria/correo_orfanato.png")
-                    xysize (400, 400) # Tamaño uniforme para todas
+                    xysize (553, 575)
                     action g.Action("foto_epilogo")
                 # Si la foto esta desbloqueado muestra el tituño si no le hace la de willan afton a los niños
-                text ("Correo del orfanato" if renpy.seen_image("Correo_orfanato") else "?????") size 22 xalign 0.5
+                text ("Correo del orfanato" if renpy.seen_image("correo_orfanato") else "?????") size 22 xalign 0.5
 
             # Casilla 2
             vbox:
                 imagebutton:
                     idle g.make_button("foto_escena2", "galeria/ow.png")
-                    xysize (400, 400)
+                    xysize (553, 575)
                     action g.Action("foto_escena2")
                 text ("iris pagame" if renpy.seen_image("dlagon") else "?????") size 22 xalign 0.5
 
@@ -71,16 +72,17 @@ screen galeria_screen():
             vbox:
                 imagebutton:
                     idle g.make_button("foto_escena3", "galeria/fu-fu.png")
-                    xysize (400, 400)
+                    xysize (553, 575)
                     action g.Action("foto_escena3")
-                text ("Toy chica era" if renpy.seen_image("tengo hambre") else "?????") size 22 xalign 0.5
+                text ("Toy chica era" if renpy.seen_image("tengo_hambre") else "?????") size 22 xalign 0.5
 
             # Casilla 4
             vbox:
                 imagebutton:
                     idle g.make_button("foto_escena4", "galeria/dlagon.png")
-                    xysize (400, 400)
+                    xysize (553, 575)
                     action g.Action("foto_escena4")
-                text ("necesito sanación" if renpy.seen_image("bg ow") else "?????") size 22 xalign 0.5
+                text ("necesito sanación" if renpy.seen_image("bg_ow") else "?????") size 22 xalign 0.5
+
 # vale bella weona lo que acabo de haqcer aqui es limitar el tamaño de la fotos para que una no se sobreponga a la otra  
 # la cosa es que estaria bien que todas esten en el mismo tamaño a la hora de crearla
