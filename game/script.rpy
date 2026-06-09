@@ -453,7 +453,7 @@ label Lee_el_correo:
     "La recepcionista llamó suavemente dos veces antes de abrir."
 
     re "Director, [nombre_jugador] ya ha llegado."
-
+    
     "El despacho era pequeño."
 
     "Demasiado ordenado."

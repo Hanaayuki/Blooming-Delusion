@@ -311,6 +311,8 @@ screen navigation():
 
         textbutton _("Opciones") action ShowMenu("preferences")
 
+        textbutton _("Galería") action ShowMenu("galeria_screen")
+
         if _in_replay:
 
             textbutton _("Finaliza repetición") action EndReplay(confirm=True)
