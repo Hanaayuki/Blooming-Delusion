@@ -22,7 +22,7 @@ define yk = Character("Ryker" , color="9500D4")
 define qn = Character("¿?")
 
 define re = Character("Recepcionista")
-define di = Character("Director")
+define di = Character("Directora")
 #narrador es empanadas
 define narrator = Character(None, window_background=Frame("gui/cuadro_texto_protagonista.PNG", 0, 0, xalign=0.5, yalign=1.0))
 
@@ -42,11 +42,15 @@ image Ryan = "Ryan.png"
 image Soren = "Soren.png"
 image Ryker = "Ryker.png"
 image Recepcionista = "Recepcionista.png"
-image Director = "Director.png"
+image Directora = "Directora.png"
 
 #Cuadro de textos personalizado
 
-
+#splashscreen:
+label splashscreen:
+    scene black
+    $ renpy.movie_cutscene("Inrtro/Desarrollado por.mp4")
+    return
 
 # El juego comienza aquí.
 
