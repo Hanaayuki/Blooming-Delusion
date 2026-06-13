@@ -49,7 +49,7 @@ image Directora = "Directora.png"
 #splashscreen:
 label splashscreen:
     scene black
-    $ renpy.movie_cutscene("Inrtro/Desarrollado por.mp4")
+    $ renpy.movie_cutscene("Intro/Desarrollado.Webm")
     return
 
 # El juego comienza aquí.
